@@ -1,18 +1,18 @@
 // main.ts
+import { pedirCarta, plantarse, nuevaPartida } from "./ui";
 
-import { pedirCarta, plantarse } from "./motor";
-import { reiniciarPuntuacion } from "./modelo";
-import { actualizarHTML, pintarCartaEnHTML, ocultarBotonNuevaPartida } from "./ui";
-
-function nuevaPartida(): void {
-    reiniciarPuntuacion();
-    actualizarHTML("puntuacionDiv", "Puntuación: 0");
-    pintarCartaEnHTML("https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg");
-    actualizarHTML("mensajeDiv", "");
-    ocultarBotonNuevaPartida();
+// Configuración de eventos para los botones
+const btnPedirCarta = document.getElementById("pedirCartaBtn");
+if (btnPedirCarta !== null && btnPedirCarta !== undefined && btnPedirCarta instanceof HTMLButtonElement) {
+    btnPedirCarta.addEventListener("click", pedirCarta);
 }
 
-// Asigna los eventos a los botones
-document.getElementById("pedirCartaBtn")?.addEventListener("click", pedirCarta);
-document.getElementById("plantarseBtn")?.addEventListener("click", plantarse);
-document.getElementById("nuevaPartidaBtn")?.addEventListener("click", nuevaPartida);
+const btnPlantarse = document.getElementById("plantarseBtn");
+if (btnPlantarse !== null && btnPlantarse !== undefined && btnPlantarse instanceof HTMLButtonElement) {
+    btnPlantarse.addEventListener("click", plantarse);
+}
+
+const btnNuevaPartida = document.getElementById("nuevaPartidaBtn");
+if (btnNuevaPartida !== null && btnNuevaPartida !== undefined && btnNuevaPartida instanceof HTMLButtonElement) {
+    btnNuevaPartida.addEventListener("click", nuevaPartida);
+}
